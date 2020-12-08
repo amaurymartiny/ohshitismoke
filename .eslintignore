@@ -3,3 +3,5 @@
 bin
 coverage
 node_modules
+e2e/init.ts
+e2e/locationDenied.spec.ts
