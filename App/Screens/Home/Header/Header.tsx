@@ -28,10 +28,10 @@ import { scale } from 'react-native-size-matters';
 import { isStationTooFar, distanceToStation } from '@shootismoke/ui';
 
 import { ChangeLocation, CurrentLocation } from '../../../components';
-import { t } from '../../../localization';
 import { ApiContext, CurrentLocationContext } from '../../../stores';
 import { useDistanceUnit } from '../../../stores/distanceUnit';
 import * as theme from '../../../util/theme';
+import { useTranslation, Trans } from 'react-i18next';
 
 interface HeaderProps {
 	onChangeLocationClick: (event: GestureResponderEvent) => void;
@@ -79,6 +79,7 @@ export function Header(props: HeaderProps): React.ReactElement {
 
 	const distance = distanceToStation(currentLocation, api, distanceUnit);
 	const isTooFar = isStationTooFar(currentLocation, api);
+	const { t } = useTranslation('screen_home');
 
 	return (
 		<View style={styles.container}>
@@ -96,11 +97,18 @@ export function Header(props: HeaderProps): React.ReactElement {
 						/>
 					)}
 					<Text style={theme.text}>
-						{t('home_header_air_quality_station_distance', {
-							distanceToStation: distance,
-							distanceUnit: shortDistanceUnit,
-						})}{' '}
-						{!isGps && t('home_header_from_search')}
+						<Trans
+							i18nKey="header.air_quality_station_distance_from"
+							values={{
+								distanceToStation: distance,
+								distanceUnit: shortDistanceUnit,
+							}}
+							tOptions={{ context: isGps ? 'detect' : 'search' }}
+							t={t}
+						>
+							Air Quality Station:{' '}
+							{'{{distanceToStation}}{{distanceUnit}}'} away
+						</Trans>
 					</Text>
 				</View>
 			</View>
@@ -109,3 +117,12 @@ export function Header(props: HeaderProps): React.ReactElement {
 		</View>
 	);
 }
+
+/**
+ * I18NEXT-PARSER
+ * https://github.com/i18next/i18next-parser#caveats
+ *
+ * > Trans: header.air_quality_station_distance_from
+ * t('header.air_quality_station_distance_from', 'Air Quality Station: {{distanceToStation}}{{distanceUnit}} away', {context: 'detect'})
+ * t('header.air_quality_station_distance_from', 'Air Quality Station: {{distanceToStation}}{{distanceUnit}} away from search', {context: 'search'})
+ */

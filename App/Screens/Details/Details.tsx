@@ -16,15 +16,15 @@
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { stationName } from '@shootismoke/dataproviders';
+import { distanceToStation, getCorrectLatLng } from '@shootismoke/ui';
 import homeIcon from '@shootismoke/ui/assets/images/home.png';
 import stationIcon from '@shootismoke/ui/assets/images/station.png';
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ImageRequireSource, StyleSheet, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import truncate from 'truncate';
-import { distanceToStation, getCorrectLatLng } from '@shootismoke/ui';
 
-import { t } from '../../localization';
 import { ApiContext, CurrentLocationContext } from '../../stores';
 import { useDistanceUnit } from '../../stores/distanceUnit';
 import { trackScreen } from '../../util/amplitude';
@@ -60,6 +60,7 @@ export function Details(props: DetailsProps): React.ReactElement {
 		CurrentLocationContext
 	);
 	const { distanceUnit } = useDistanceUnit();
+	const { t } = useTranslation('screen_detail');
 
 	trackScreen('DETAILS');
 
@@ -143,13 +144,13 @@ export function Details(props: DetailsProps): React.ReactElement {
 							coordinate={station}
 							image={stationIcon as ImageRequireSource}
 							ref={handleStationRef}
-							title={t('details_air_quality_station_marker')}
+							title={t('marker.air_quality_station')}
 							description={truncate(station.description, 40)}
 						/>
 						<Marker
 							coordinate={currentLocation}
 							image={homeIcon as ImageRequireSource}
-							title={t('details_your_position_marker')}
+							title={t('marker.your_position')}
 						/>
 					</MapView>
 				)}

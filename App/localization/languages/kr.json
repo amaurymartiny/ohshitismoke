@@ -1,92 +1,114 @@
 {
-  "error_screen_common_sorry": "이런!\n",
-  "error_screen_error_cannot_load_cigarettes": "당신이 핀 담배 개수를 로드할 수 없습니다.",
-  "error_screen_choose_other_location": "다른 지역을 선택하세요",
-  "error_screen_error_description": "데이터베이스에 문제가 생겼거나 당신의 근처에 측정기관이 존재하지 않습니다. 다음에 다시 시도해주세요!",
-  "error_screen_error_message": "오류: {{errorText}}",
-  "home_station_too_far_message": "당신 근처에 가까운 공기 측정소를 찾을 수 없습니다..\n현재 거리에서는 결과가 부정확할 수 있습니다.",
-  "home_share_title": "큰 도시에 사는 것만으로도 하루에 담배를 20개피를 핀 것과 같다는 것을 알고 계셨나요?",
-  "home_share_message": "이런! 도시 공기를 마시면서 담배 {{cigarettes}} 개피를 피웠군요. 당신은 어떤가요? 이곳에서 알아보세요!: https://shootismoke.github.io",
-  "home_header_air_quality_station_distance": "공기 측정 기관: {{distanceToStation}}{{distanceUnit}} 떨어짐",
-  "home_btn_why_is_station_so_far": "공기 측정소가 왜 이렇게 먼가요?",
-  "home_btn_see_detailed_info": "자세히 보기",
-  "home_btn_more_details": "세부사항",
-  "home_btn_faq_about": "Faq/소개",
-  "home_btn_share": "공유",
-  "home_cigarettes_you_ll_smoke": "당신이 필 담배는",
-  "home_cigarettes_you_smoked": "당신이 핀 담배는",
-  "home_cigarettes_oh": "오",
-  "home_cigarettes_cigarette": "개피 입니다.",
-  "home_cigarettes_cigarettes": "개피 입니다.",
-  "home_cigarettes_smoked_cigarette_title": "{{swearWord}}! {{presentPast}}\n<{{cigarettes}} {{singularPlural}}>",
-  "home_swear_word_dang": "이런!",
-  "home_swear_word_shoot": "젠장!",
-  "home_swear_word_darn": "오 이런!",
-  "home_swear_word_geez": "안됐군요!",
-  "home_swear_word_omg": "세상에!",
-  "home_swear_word_crap": "말도 안돼!",
-  "home_swear_word_arrgh": "맙소사!",
-  "loading_title_cough": "쿨럭",
-  "loading_title_loading": "로딩중",
-  "search_header_input_placeholder": "도시 또는 주소 찾기",
-  "nav_btn_back": "뒤로가기",
-  "details_air_quality_station_marker": "공기 측정 기관",
-  "details_your_position_marker": "당신의 위치",
-  "details_header_latest_update_label": "최근 업데이트:",
-  "details_header_primary_pollutant_label": "1차 오염 물질:",
-  "details_distance_label": "AQI 기관: {{distanceToStation}}{{distanceUnit}} 떨어짐",
-  "about_how_do_you_calculate_the_number_of_cigarettes_title": "하루에 핀 담배 개수를 어떻게 측정하나요?",
-  "about_how_do_you_calculate_the_number_of_cigarettes_message_1": "이 어플은 다음에 의해 영감을 받은 어플입니다. :",
-  "about_how_do_you_calculate_the_number_of_cigarettes_link_1": "Berkeley Earth가 발견한 공기 오염도와 담배 흡연의 상관관계",
-  "about_how_do_you_calculate_the_number_of_cigarettes_message_2": ". 계산기준은 간단합니다. : 하루마다 담배 1개피(24시간)은 다음과 같습니다. PM2.5 기준 22",
-  "about_where_does_data_come_from_title": "이 데이터들은 어디서 오는 건가요?",
-  "about_where_does_data_come_from_message_1": "공기 오염도 데이터는 다음으로 부터 옵니다.",
-  "about_where_does_data_come_from_link_1": "WAQI",
-  "about_where_does_data_come_from_message_2": "이 데이터는 PM 2.5 AQI기준으로써, 보통 매 한시간마다 업데이트 되고, 이 어플에 의해 direct PM 2.5로 전환됩니다.",
-  "about_why_is_the_station_so_far_title": "현재 위치로부터 측정 기관까지 왜 이렇게 멀까요?",
-  "about_why_is_the_station_so_far_message": "공기 오염도를 측정하고 알려주는 측정 기관소의 결과 데이터는 제한적이기 때문에, 여전히 선진국 지역이나 큰 도시 지역의 데이터밖에 지원되지 않습니다. 만약 당신이 도시로부터 많이 떨어져 있다면, 결과값은 그다지 정확하지 않을 것입니다. 만약 그런 경우에는 당신 지역의 공기는 더 좋을 수 있겠지요!",
-  "about_weird_results_title": "이 결과들은 다른 소스들과 비교해서 이상하거나 일치하지 않을 수 있습니다!",
-  "about_weird_results_message_1": "우리는 또한 몇가지 놀라운 결과를 경험했습니다 : 작은 마을들보다 공기가 더 좋은 대도시들; 담배 수의 갑작스러운 증가; 확연하게 다른 숫자를 보여주는 같은 도시의 거점... 사실 공기의 질은 온도, 압력, 습도 심지어 풍향 및 강도 등 여러 요인에 달려있습니다. 결과가 이상하게 보이면 확인하십시오.",
-  "about_weird_results_link_1": "WAQI",
-  "about_weird_results_message_2": "당신의 거점에 대한 더 많은 정보와 역사",
-  "about_box_per_day": "하루 당",
-  "about_box_footnote": "*대기 입자상 물질(PM)은 직경이 2.5 마이크로 미터 미만이며, 생명체가 흡입할 가능성이 높습니다.",
-  "about_credits_title": "신용",
-  "about_credits_concept_and_development": "컨셉 & 개발",
-  "about_credits_design_and_copywriting": "디자인 & 카피라이팅",
-  "about_credits_data_from": "대기 질 데이터 출처",
-  "about_credits_source_code": "소스 코드",
-  "about_credits_available_github": "Github에서 사용 가능합니다.",
-  "about_language": "언어",
-  "home_beta_not_accurate": "숫자는 100% 정확하지 않을 수 있습니다.",
-  "home_header_from_search": "검색에서",
-  "home_header_change_location": "위치 바꾸기",
-  "home_btn_see_how_it_works": "어떻게 작동하는지 살펴보기",
-  "home_cigarettes_you_smoke": "당신이 핀 담배의 개수는",
-  "home_cigarettes_you_d_smoke": "당신이 폈었던 담배의 개수는",
-  "home_smoked_there": "오늘",
-  "home_wait_more_days": "{{days}} 일 더",
-  "home_wait_until_results": "결과 표시",
-  "search_current_location": "당신의 현재 위치",
-  "details_header_latest_update_ago": "전에 {{time}}",
-  "distance_unit": "킬로미터",
-  "haversine_distance_unit": "킬로미터",
-  "past_stations_loading": "로딩중",
-  "past_stations_date_from_to": "{{startDate}} 부터 {{endDate}}",
-  "past_stations_monitored_weekly": "한 주동안 당신에게 감시되는 거점",
-  "past_stations_monitored_monthly": "한 달동안 당신에게 감시되는 거점",
-  "past_stations_unknown_station": "알 수 없는 AQI 거점",
-  "past_stations_unknown_city": "알 수 없는 도시",
-  "about_beta_inaccurate_title": "주간과 월간 담배 수치가 베타인 이유는 무엇입니까?",
-  "about_beta_inaccurate_message": "결과가 매우 부정확할 수 있기 때문에 주간과 월간 담배 수치를 표시하는 기능은 베타입니다 : 우리는 단순히 현재 PM2.5의 수치에 한 주(7일)과 한 달(30일)을 곱했습니다. 향후에는 거점 데이터가 포함된 데이터베이스에서 데이터를 읽을 계획이므로 이번 달 또는 이번 주에 더 정확한 수의 담배를 제공할 것입니다.",
-  "current_location_unknown_station": "알 수 없는 AQI 거점",
-  "close_button": "닫기",
-  "frequency_daily": "일간",
-  "frequency_weekly": "주간",
-  "frequency_monthly": "월간",
-  "distance_unit_short_km": "킬로미터",
-  "distance_unit_short_mi": "마일",
-  "distance_unit_long_km": "킬로미터",
-  "distance_unit_long_mi": "마일",
-  "about_distance_unit_title": "거리 단위"
+  "components": {
+    "box_footnote": "*대기 입자상 물질(PM)은 직경이 2.5 마이크로 미터 미만이며, 생명체가 흡입할 가능성이 높습니다.",
+    "box_per_day": "하루 당",
+    "btn_back": "뒤로가기",
+    "cigarette_count": "EMPTY",
+    "cigarette_count_plural": "EMPTY",
+    "cigarette_report": "{{swear_word}}! You smoke\n<3>{{cigarette_count}}</3> {{frequency}}.",
+    "current_location_unknown_station": "알 수 없는 AQI 거점",
+    "distance_unit": {
+      "long_km": "킬로미터",
+      "long_mi": "마일",
+      "short_km": "킬로미터",
+      "short_mi": "마일"
+    },
+    "frequency": {},
+    "header": {
+      "change_location": "위치 바꾸기"
+    },
+    "loading_cigarettes": "Loading<1>...</1>",
+    "swear_word": "EMPTY",
+    "swear_word_0": "오",
+    "swear_word_1": "젠장!",
+    "swear_word_2": "이런!",
+    "swear_word_3": "오 이런!",
+    "swear_word_4": "안됐군요!",
+    "swear_word_5": "세상에!",
+    "swear_word_6": "말도 안돼!",
+    "swear_word_7": "맙소사!"
+  },
+  "screen_about": {
+    "credits": {
+      "concept_and_development": "Concept & Development by <4>{{author}}</4>.",
+      "database": "Air quality data from <2>WAQI</2> and <6>OpenAQ</6>.",
+      "design_and_copywriting": "Design & Copywriting by <4>{{author}}</4>.",
+      "source_code": "Source code <2>available on Github</2>.",
+      "title": "신용"
+    },
+    "how_to_calculate_number_of_cigarettes": {
+      "message": "This app was inspired by Berkeley Earth’s findings about the <2>equivalence between air pollution and cigarette smoking</2>. The rule of thumb is simple: one cigarette per day (24h) is the rough equivalent of a PM2.5 level of <5></5>.",
+      "title": "하루에 핀 담배 개수를 어떻게 측정하나요?"
+    },
+    "inaccurated_beta": {
+      "message": "결과가 매우 부정확할 수 있기 때문에 주간과 월간 담배 수치를 표시하는 기능은 베타입니다 : 우리는 단순히 현재 PM2.5의 수치에 한 주(7일)과 한 달(30일)을 곱했습니다. 향후에는 거점 데이터가 포함된 데이터베이스에서 데이터를 읽을 계획이므로 이번 달 또는 이번 주에 더 정확한 수의 담배를 제공할 것입니다.",
+      "title": "주간과 월간 담배 수치가 베타인 이유는 무엇입니까?"
+    },
+    "settings": {
+      "distance_unit": {}
+    },
+    "weird_results": {
+      "message": "We have also encountered a few surprising results: large cities with better air than small villages; sudden huge increases in the number of cigarettes; stations of the same town showing significantly different numbers... The fact is air quality depends on several factors such as temperature, pressure, humidity and even wind direction and intensity. If the result seems weird for you, check <2>WAQI</2> and <6>OpenAQ</6> for more information and history on your station."
+    },
+    "where_does_data_come_from": {
+      "message": "Air quality data comes from <2>WAQI</2> and <6>OpenAQ</6> in the form of PM2.5 AQI levels which are usually updated every one hour and converted to direct PM2.5 levels by the app.",
+      "title": "이 데이터들은 어디서 오는 건가요?"
+    },
+    "why_is_the_station_so_far": {
+      "message": "공기 오염도를 측정하고 알려주는 측정 기관소의 결과 데이터는 제한적이기 때문에, 여전히 선진국 지역이나 큰 도시 지역의 데이터밖에 지원되지 않습니다. 만약 당신이 도시로부터 많이 떨어져 있다면, 결과값은 그다지 정확하지 않을 것입니다. 만약 그런 경우에는 당신 지역의 공기는 더 좋을 수 있겠지요!",
+      "title": "현재 위치로부터 측정 기관까지 왜 이렇게 멀까요?"
+    }
+  },
+  "screen_detail": {
+    "distance_label": "AQI 기관: {{distanceToStation}}{{distanceUnit}} 떨어짐",
+    "header": {
+      "latest_update": {
+        "ago": "전에 {{time}}",
+        "label": "최근 업데이트:"
+      },
+      "primary_pollutant_label": "1차 오염 물질:"
+    },
+    "marker": {
+      "air_quality_station": "공기 측정 기관",
+      "your_position": "당신의 위치"
+    }
+  },
+  "screen_error": {
+    "cannot_load_cigarettes": "당신이 핀 담배 개수를 로드할 수 없습니다.",
+    "choose_other_location": "다른 지역을 선택하세요",
+    "description": "데이터베이스에 문제가 생겼거나 당신의 근처에 측정기관이 존재하지 않습니다. 다음에 다시 시도해주세요!",
+    "header": {
+      "sorry": "이런!\n"
+    },
+    "message": "오류: {{errorText}}"
+  },
+  "screen_home": {
+    "beta_not_accurate": "숫자는 100% 정확하지 않을 수 있습니다.",
+    "btn": {
+      "see_detailed_info": "자세히 보기",
+      "why_is_station_so_far": "공기 측정소가 왜 이렇게 먼가요?"
+    },
+    "header": {
+      "air_quality_station_distance_from": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away",
+      "air_quality_station_distance_from_detect": "공기 측정 기관: {{distanceToStation}}{{distanceUnit}} 떨어짐",
+      "air_quality_station_distance_from_search": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away from search"
+    },
+    "notification": {},
+    "sharing": {
+      "located_city": "in {{place}}",
+      "message": "Shoot! People {{city}} \"smoke\" {{amount}} cigarettes daily just by breathing urban air. Try it out yourself: {{link}}",
+      "title": "큰 도시에 사는 것만으로도 하루에 담배를 20개피를 핀 것과 같다는 것을 알고 계셨나요?"
+    },
+    "station_too_far": "당신 근처에 가까운 공기 측정소를 찾을 수 없습니다..\n현재 거리에서는 결과가 부정확할 수 있습니다."
+  },
+  "screen_loading": {
+    "cough": "쿨럭",
+    "loading": "로딩중"
+  },
+  "screen_search": {
+    "current_location": "당신의 현재 위치",
+    "header": {
+      "input_placeholder": "도시 또는 주소 찾기"
+    }
+  }
 }

@@ -29,9 +29,9 @@ import {
 	TextStyle,
 	View,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { BackButton, CurrentLocation } from '../../../components';
-import { t } from '../../../localization';
 import { ApiContext, CurrentLocationContext } from '../../../stores';
 import * as theme from '../../../util/theme';
 
@@ -133,6 +133,7 @@ export function Header(props: HeaderProps): React.ReactElement {
 	const { onBackClick } = props;
 	const { api } = useContext(ApiContext);
 	const { currentLocation } = useContext(CurrentLocationContext);
+	const { t } = useTranslation('screen_detail');
 
 	if (!currentLocation) {
 		throw new Error(
@@ -148,6 +149,18 @@ export function Header(props: HeaderProps): React.ReactElement {
 	// the average AQI of each pollutant.
 	// FIXME Make sure the units are correctly converted.
 	const averages = pollutantAverage(api.normalized);
+
+	const time = formatDistanceToNow(new Date(api.pm25.date.local));
+
+	const last_update_label: string = t(
+		'header.latest_update.label',
+		'Latest Update:'
+	);
+	const last_update_ago: string = t(
+		'header.latest_update.ago',
+		'{{time}} ago',
+		{ time }
+	);
 
 	return (
 		<View style={styles.container}>
@@ -165,16 +178,9 @@ export function Header(props: HeaderProps): React.ReactElement {
 						measurement={api.pm25}
 						style={styles.currentLocation}
 					/>
+					{renderInfo(last_update_label, last_update_ago)}
 					{renderInfo(
-						t('details_header_latest_update_label'),
-						t('details_header_latest_update_ago', {
-							time: formatDistanceToNow(
-								new Date(api.pm25.date.local)
-							),
-						})
-					)}
-					{renderInfo(
-						t('details_header_primary_pollutant_label'),
+						t('header.primary_pollutant_label'),
 						getDominantPol(api.normalized).toUpperCase()
 					)}
 

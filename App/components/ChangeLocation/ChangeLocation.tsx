@@ -24,9 +24,9 @@ import {
 } from 'react-native';
 import { scale } from 'react-native-size-matters';
 
-import { t } from '../../localization';
 import * as theme from '../../util/theme';
 import { CircleButton } from '../CircleButton';
+import { useTranslation } from 'react-i18next';
 
 type ChangeLocationProps = TouchableOpacityProps;
 
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
 
 export function ChangeLocation(props: ChangeLocationProps): React.ReactElement {
 	const { style, ...rest } = props;
+	const { t } = useTranslation('components');
 	return (
 		<TouchableOpacity style={[styles.container, style]} {...rest}>
 			<CircleButton
@@ -61,7 +62,7 @@ export function ChangeLocation(props: ChangeLocationProps): React.ReactElement {
 				inverted
 				style={styles.icon}
 			/>
-			<Text style={styles.label}>{t('home_header_change_location')}</Text>
+			<Text style={styles.label}>{t('header.change_location')}</Text>
 		</TouchableOpacity>
 	);
 }

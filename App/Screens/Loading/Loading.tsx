@@ -17,8 +17,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { Api } from '@shootismoke/ui';
+import { TFunction } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
-import { t } from '../../localization';
 import { ApiContext, GpsLocationContext } from '../../stores';
 import { Location } from '../../stores/util/fetchGpsPosition';
 import { trackScreen } from '../../util/amplitude';
@@ -39,10 +40,10 @@ const styles = StyleSheet.create({
 	},
 });
 
-function renderCough(index: number): React.ReactElement {
+function renderCough(index: number, t: TFunction): React.ReactElement {
 	return (
 		<Text key={index}>
-			{t('loading_title_cough')}
+			{t('cough')}
 			<Text style={styles.dots}>...</Text>
 		</Text>
 	);
@@ -53,6 +54,7 @@ function renderText(
 	gps?: Location,
 	api?: Api
 ): React.ReactElement {
+	const { t } = useTranslation('screen_loading');
 	let coughs = 0; // Number of times to show "Cough..."
 	if (gps) ++coughs;
 	if (longWaiting) ++coughs;
@@ -60,11 +62,13 @@ function renderText(
 
 	return (
 		<Text>
-			{t('loading_title_loading')}
+			{t('loading')}
 			<Text style={styles.dots}>...</Text>
 			{Array.from({ length: coughs }, (_, index) => index + 1).map(
-				// Create array 1..N and rendering Cough...
-				renderCough
+				(value, index) => {
+					// Create array 1..N and rendering Cough...
+					renderCough(index, t);
+				}
 			)}
 		</Text>
 	);

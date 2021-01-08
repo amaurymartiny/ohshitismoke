@@ -17,10 +17,9 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useContext, useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View, Dimensions } from 'react-native';
-import { CigarettesBlock, Frequency, FrequencyContext } from '@shootismoke/ui';
+import { Frequency, FrequencyContext } from '@shootismoke/ui';
 import { scale } from 'react-native-size-matters';
 
-import { t } from '../../localization';
 import { ApiContext, CurrentLocationContext } from '../../stores';
 import { track, trackScreen } from '../../util/amplitude';
 import * as theme from '../../util/theme';
@@ -30,6 +29,7 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { SelectFrequency } from './SelectFrequency';
 import { SmokeVideo } from './SmokeVideo';
+import { CigarettesBlock } from '../../components/CigarettesBlock';
 
 interface HomeProps {
 	navigation: StackNavigationProp<RootStackParams, 'Home'>;
@@ -188,8 +188,8 @@ export function Home(props: HomeProps): React.ReactElement {
 					spacingHorizontal={getCigarettesMargin(cigarettes.count)}
 					spacingVertical={getCigarettesMargin(cigarettes.count)}
 					style={[theme.withPadding, styles.withMargin]}
-					t={t}
 					textStyle={[theme.shitText, styles.withMargin]}
+					frequency={frequency}
 				/>
 				<SelectFrequency style={styles.withMargin} />
 				<AdditionalInfo

@@ -17,7 +17,7 @@
 import React, { useContext } from 'react';
 import { Picker, StyleSheet, Text, View } from 'react-native';
 
-import { i18n } from '../../../localization';
+import i18n from '../../../localization'; // TODO language picker
 import { ApiContext } from '../../../stores';
 import * as theme from '../../../util/theme';
 import * as names from './names.json';
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
 export function Language(): React.ReactElement {
 	const { reloadApp } = useContext(ApiContext);
 
-	const handleValueChange = (itemValue: string): void => {
-		i18n.locale = itemValue;
+	const handleValueChange = async (itemValue: string): Promise<void> => {
+		await i18n.changeLanguage(itemValue);
 
 		// Reload app for changes to take effect
 		reloadApp();
@@ -49,15 +49,15 @@ export function Language(): React.ReactElement {
 	return (
 		<View style={styles.container}>
 			<Text style={theme.link}>
-				{names[i18n.locale as keyof typeof names].nativeName}
+				{names[i18n.language as keyof typeof names].nativeName}
 			</Text>
 			<Picker
 				itemStyle={theme.text}
 				onValueChange={handleValueChange}
-				selectedValue={i18n.locale}
+				selectedValue={i18n.language}
 				style={styles.picker}
 			>
-				{Object.keys(i18n.translations).map((lang) => (
+				{i18n.languages.map((lang) => (
 					<Picker.Item
 						key={lang}
 						label={names[lang as keyof typeof names].nativeName}

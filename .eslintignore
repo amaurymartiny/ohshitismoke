@@ -3,3 +3,5 @@
 bin
 coverage
 node_modules
+scripts/migration.js
+scripts/packTranslations.js

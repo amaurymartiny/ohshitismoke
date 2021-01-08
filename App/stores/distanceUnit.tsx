@@ -17,9 +17,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { AsyncStorage } from 'react-native';
 
-import { t } from '../localization';
 import { noop, DistanceUnit } from '@shootismoke/ui';
 import { sentryError } from '../util/sentry';
+import { useTranslation } from 'react-i18next';
 
 type DistanceUnitFormat = 'short' | 'long';
 
@@ -43,11 +43,11 @@ export function DistanceUnitProvider({
 	children: React.ReactNode;
 }): React.ReactElement {
 	const [distanceUnit, setDistanceUnit] = useState<DistanceUnit>('km');
+	const { t } = useTranslation('components');
 
 	function localizedDistanceUnit(format: 'short' | 'long'): string {
-		return distanceUnit === 'km'
-			? t(`distance_unit_${format}_km`)
-			: t(`distance_unit_${format}_mi`);
+		const unit = distanceUnit === 'km' ? 'km' : 'mi';
+		return t(`distance_unit.${format}`, { context: unit });
 	}
 
 	useEffect(() => {
@@ -78,3 +78,14 @@ export function DistanceUnitProvider({
 }
 
 export const useDistanceUnit = (): ContextType => useContext(Context);
+
+/**
+ * I18NEXT-PARSER
+ * https://github.com/i18next/i18next-parser#caveats
+ *
+ * > localizedDistanceUnit
+ * t('distance_unit.long', 'kilometer', {context: 'km'})
+ * t('distance_unit.long', 'mile', {context: 'mi'})
+ * t('distance_unit.short', 'km', {context: 'km'})
+ * t('distance_unit.short', 'mi', {context: 'mi'})
+ */

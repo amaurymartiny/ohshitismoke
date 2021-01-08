@@ -19,8 +19,8 @@ import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, TextInput } from 'react-native';
 
 import { Banner } from '../../../components';
-import { t } from '../../../localization';
 import * as theme from '../../../util/theme';
+import { useTranslation } from 'react-i18next';
 
 interface SearchHeaderProps {
 	onChangeSearch?: (text: string) => void;
@@ -47,13 +47,14 @@ const styles = StyleSheet.create({
 
 export function SearchHeader(props: SearchHeaderProps): React.ReactElement {
 	const { onChangeSearch, search } = props;
+	const { t } = useTranslation('screen_search');
 
 	return (
 		<Banner elevated shadowPosition="bottom">
 			<TextInput
 				autoFocus
 				onChangeText={onChangeSearch}
-				placeholder={t('search_header_input_placeholder')}
+				placeholder={t('header.input_placeholder')}
 				placeholderTextColor="rgba(255, 255, 255, 0.6)"
 				style={styles.input}
 				underlineColorAndroid="transparent"

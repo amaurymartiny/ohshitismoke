@@ -14,30 +14,61 @@
 // You should have received a copy of the GNU General Public License
 // along with Sh**t! I Smoke.  If not, see <http://www.gnu.org/licenses/>.
 
+import Constants from 'expo-constants';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Constants from 'expo-constants';
+import { ConversionBox, DistanceUnit } from '@shootismoke/ui';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import {
-	Linking,
-	Picker,
 	Platform,
 	ScrollView,
 	StyleSheet,
 	Text,
 	View,
+	Picker,
+	Linking,
 } from 'react-native';
 import { ScrollIntoView, wrapScrollView } from 'react-native-scroll-into-view';
 import { scale } from 'react-native-size-matters';
-import { ConversionBox, DistanceUnit } from '@shootismoke/ui';
 
 import { BackButton } from '../../components';
-import { t } from '../../localization';
-import { useDistanceUnit } from '../../stores/distanceUnit';
-import { AmplitudeEvent, track, trackScreen } from '../../util/amplitude';
+import { useDistanceUnit } from '../../stores';
+import { trackScreen, AmplitudeEvent, track } from '../../util/amplitude';
 import * as theme from '../../util/theme';
 import { sentryError } from '../../util/sentry';
+
 import { RootStackParams } from '../routeParams';
+
+function AboutLink(url: string): void {
+	Linking.openURL(url).catch(sentryError('About'));
+}
+
+export function handleOpenWaqi(): void {
+	AboutLink('https://aqicn.org');
+}
+
+export function handleOpenOpenAQ(): void {
+	AboutLink('https://openaq.org');
+}
+
+export function handleOpenBerkeley(): void {
+	AboutLink(
+		'http://berkeleyearth.org/air-pollution-and-cigarette-equivalence/'
+	);
+}
+
+export function handleOpenAmaury(): void {
+	AboutLink('https://twitter.com/amaurymartiny');
+}
+
+export function handleOpenGithub(): void {
+	AboutLink('https://github.com/amaurymartiny/shoot-i-smoke');
+}
+
+export function handleOpenMarcelo(): void {
+	AboutLink('https://www.behance.net/marceloscoelho');
+}
 
 const CustomScrollView = wrapScrollView(ScrollView);
 const scrollViewOptions = {
@@ -53,44 +84,22 @@ export const aboutSections = {
 	aboutWhyIsTheStationSoFarTitle: 'aboutWhyIsTheStationSoFarTitle',
 };
 
-const handleOpenAmaury = (): void => {
-	Linking.openURL('https://twitter.com/amaurymartiny').catch(
-		sentryError('About')
-	);
-};
-
-const handleOpenWaqi = (): void => {
-	Linking.openURL('https://aqicn.org').catch(sentryError('About'));
-};
-
-const handleOpenOpenAQ = (): void => {
-	Linking.openURL('https://openaq.org').catch(sentryError('About'));
-};
-
-const handleOpenBerkeley = (): void => {
-	Linking.openURL(
-		'http://berkeleyearth.org/air-pollution-and-cigarette-equivalence/'
-	).catch(sentryError('About'));
-};
-
-const handleOpenGithub = (): void => {
-	Linking.openURL('https://github.com/amaurymartiny/shoot-i-smoke').catch(
-		sentryError('About')
-	);
-};
-
-const handleOpenMarcelo = (): void => {
-	Linking.openURL('https://www.behance.net/marceloscoelho').catch(
-		sentryError('About')
-	);
-};
-
 interface AboutProps {
 	navigation: StackNavigationProp<RootStackParams, 'About'>;
 	route: RouteProp<RootStackParams, 'About'>;
 }
 
+interface ProportionProps {
+	size: string;
+}
+
 const styles = StyleSheet.create({
+	credits: {
+		borderTopColor: theme.iconBackgroundColor,
+		borderTopWidth: 1,
+		marginBottom: theme.spacing.normal,
+		paddingTop: theme.spacing.big,
+	},
 	articleLink: {
 		...theme.text,
 		fontSize: scale(8),
@@ -99,25 +108,11 @@ const styles = StyleSheet.create({
 		marginBottom: theme.spacing.normal,
 		marginTop: theme.spacing.normal,
 	},
-	credits: {
-		borderTopColor: theme.iconBackgroundColor,
-		borderTopWidth: 1,
-		marginBottom: theme.spacing.normal,
-		paddingTop: theme.spacing.big,
-	},
 	distance: {
 		borderTopColor: theme.iconBackgroundColor,
 		borderTopWidth: 1,
 		marginBottom: theme.spacing.big,
 		paddingTop: theme.spacing.big,
-	},
-	distancePicker: {
-		...Platform.select({
-			ios: {
-				marginBottom: scale(-60),
-				marginTop: scale(-40),
-			},
-		}),
 	},
 	distanceText: {
 		...theme.text,
@@ -145,16 +140,39 @@ const styles = StyleSheet.create({
 	section: {
 		marginBottom: theme.spacing.big,
 	},
+	distancePicker: {
+		...Platform.select({
+			ios: {
+				marginBottom: scale(-60),
+				marginTop: scale(-40),
+			},
+		}),
+	},
 });
+
+function Proportion(props: ProportionProps): React.ReactElement {
+	const { size } = props;
+	const note1 = '\u207D\u00B9\u207E';
+	return (
+		<>
+			{size}
+			<Text style={styles.micro}>&micro;</Text>g/m&sup3; {note1}
+		</>
+	);
+}
 
 export function About(props: AboutProps): React.ReactElement {
 	const {
 		navigation: { goBack },
 		route,
 	} = props;
+	const { t } = useTranslation('screen_about');
 	const { distanceUnit, setDistanceUnit } = useDistanceUnit();
 
 	trackScreen('ABOUT');
+
+	const appName = Constants.manifest.name;
+	const appVer = Constants.manifest.revisionId || Constants.manifest.version;
 
 	return (
 		<CustomScrollView
@@ -165,27 +183,23 @@ export function About(props: AboutProps): React.ReactElement {
 
 			<View style={styles.section}>
 				<Text style={styles.h2}>
-					{t(
-						'about_how_do_you_calculate_the_number_of_cigarettes_title'
-					)}
+					{t('how_to_calculate_number_of_cigarettes.title')}
 				</Text>
 				<Text style={theme.text}>
-					{t(
-						'about_how_do_you_calculate_the_number_of_cigarettes_message_1'
-					)}
-					<Text onPress={handleOpenBerkeley} style={theme.link}>
-						{t(
-							'about_how_do_you_calculate_the_number_of_cigarettes_link_1'
-						)}
-					</Text>
-					{t(
-						'about_how_do_you_calculate_the_number_of_cigarettes_message_2'
-					)}
-					<Text style={styles.micro}>&micro;</Text>
-					g/m&sup3;
-					{' \u207D'}
-					&sup1;
-					{'\u207E'}.
+					<Trans
+						i18nKey="how_to_calculate_number_of_cigarettes.message"
+						t={t}
+					>
+						This app was inspired by Berkeley Earth’s findings about
+						the{' '}
+						<Text onPress={handleOpenBerkeley} style={theme.link}>
+							equivalence between air pollution and cigarette
+							smoking
+						</Text>
+						. The rule of thumb is simple: one cigarette per day
+						(24h) is the rough equivalent of a PM2.5 level of{' '}
+						<Proportion size="22" />.
+					</Trans>
 				</Text>
 				<ConversionBox showFootnote={true} t={t} />
 				<Text style={styles.articleLink}>
@@ -200,28 +214,28 @@ export function About(props: AboutProps): React.ReactElement {
 				onMount={route.params?.scrollInto === 'aboutBetaInaccurate'}
 				style={styles.section}
 			>
-				<Text style={styles.h2}>
-					{t('about_beta_inaccurate_title')}
-				</Text>
-				<Text style={theme.text}>
-					{t('about_beta_inaccurate_message')}
-				</Text>
+				<Text style={styles.h2}>{t('inaccurated_beta.title')}</Text>
+				<Text style={theme.text}>{t('inaccurated_beta.message')}</Text>
 			</ScrollIntoView>
 
 			<View style={styles.section}>
 				<Text style={styles.h2}>
-					{t('about_where_does_data_come_from_title')}
+					{t('where_does_data_come_from.title')}
 				</Text>
 				<Text style={theme.text}>
-					{t('about_where_does_data_come_from_message_1')}
-					<Text onPress={handleOpenWaqi} style={theme.link}>
-						{t('about_where_does_data_come_from_link_1')}
-					</Text>
-					{t('about_where_does_data_come_from_message_2')}
-					<Text onPress={handleOpenOpenAQ} style={theme.link}>
-						{t('about_where_does_data_come_from_link_2')}
-					</Text>
-					{t('about_where_does_data_come_from_message_3')}
+					<Trans i18nKey="where_does_data_come_from.message" t={t}>
+						Air quality data comes from{' '}
+						<Text onPress={handleOpenWaqi} style={theme.link}>
+							WAQI
+						</Text>{' '}
+						and{' '}
+						<Text onPress={handleOpenOpenAQ} style={theme.link}>
+							OpenAQ
+						</Text>{' '}
+						in the form of PM2.5 AQI levels which are usually
+						updated every one hour and converted to direct PM2.5
+						levels by the app.
+					</Trans>
 				</Text>
 			</View>
 
@@ -233,37 +247,45 @@ export function About(props: AboutProps): React.ReactElement {
 				style={styles.section}
 			>
 				<Text style={styles.h2}>
-					{t('about_why_is_the_station_so_far_title')}
+					{t('why_is_the_station_so_far.title')}
 				</Text>
 				<Text style={theme.text}>
-					{t('about_why_is_the_station_so_far_message')}
+					{t('why_is_the_station_so_far.message')}
 				</Text>
 			</ScrollIntoView>
 
 			<View style={styles.section}>
-				<Text style={styles.h2}>{t('about_weird_results_title')}</Text>
+				<Text style={styles.h2}>{t('weird_results.title')}</Text>
 				<Text style={theme.text}>
-					{t('about_weird_results_message_1')}
-					<Text onPress={handleOpenWaqi} style={theme.link}>
-						{t('about_weird_results_link_1')}
-					</Text>
-					{t('about_weird_results_message_2')}
-					<Text onPress={handleOpenOpenAQ} style={theme.link}>
-						{t('about_weird_results_link_2')}
-					</Text>
-					{t('about_weird_results_message_3')}
+					<Trans i18nKey="weird_results.message" t={t}>
+						We have also encountered a few surprising results: large
+						cities with better air than small villages; sudden huge
+						increases in the number of cigarettes; stations of the
+						same town showing significantly different numbers... The
+						fact is air quality depends on several factors such as
+						temperature, pressure, humidity and even wind direction
+						and intensity. If the result seems weird for you, check{' '}
+						<Text onPress={handleOpenWaqi} style={theme.link}>
+							WAQI
+						</Text>{' '}
+						and{' '}
+						<Text onPress={handleOpenOpenAQ} style={theme.link}>
+							OpenAQ
+						</Text>{' '}
+						for more information and history on your station.
+					</Trans>
 				</Text>
 			</View>
 
 			<View style={styles.distance}>
-				<Text style={styles.h2}>{t('about_settings_title')}</Text>
+				<Text style={styles.h2}>{t('settings.title')}</Text>
 				<Text style={theme.text}>
-					{t('about_settings_distance_unit')}
+					{t('settings.distance_unit.label')}
 				</Text>
 				<Picker
 					onValueChange={(value: DistanceUnit): void => {
 						track(
-							`ABOUT_SCREEN_SETTINGS_${value.toUpperCase()}` as AmplitudeEvent
+							`SCREEN_SETTINGS_${value.toUpperCase()}` as AmplitudeEvent
 						);
 						setDistanceUnit(value);
 					}}
@@ -271,51 +293,68 @@ export function About(props: AboutProps): React.ReactElement {
 					style={styles.distancePicker}
 				>
 					<Picker.Item
-						label={t('about_settings_distance_unit_km')}
+						label={t('settings.distance_unit.km', 'km')}
 						value="km"
 					/>
 					<Picker.Item
-						label={t('about_settings_distance_unit_mile')}
+						label={t('settings.distance_unit.mile', 'mile')}
 						value="mile"
 					/>
 				</Picker>
+				{/* TODO Add changing languages https://github.com/amaurymartiny/shoot-i-smoke/issues/73 */}
 			</View>
 
 			<View style={styles.credits}>
-				<Text style={styles.h2}>{t('about_credits_title')}</Text>
+				<Text style={styles.h2}>{t('credits.title')}</Text>
 				<Text style={theme.text}>
-					{t('about_credits_concept_and_development')}{' '}
-					<Text onPress={handleOpenAmaury} style={theme.link}>
-						Amaury Martiny
-					</Text>
-					.{'\n'}
-					{t('about_credits_design_and_copywriting')}{' '}
-					<Text onPress={handleOpenMarcelo} style={theme.link}>
-						Marcelo S. Coelho
-					</Text>
-					.{'\n'}
+					<Trans
+						i18nKey="credits.concept_and_development"
+						values={{ author: 'Amaury Martiny' }}
+						t={t}
+					>
+						Concept {'&'} Development by{' '}
+						<Text style={theme.link} onPress={handleOpenAmaury}>
+							{'{{author}}'}
+						</Text>
+						.
+					</Trans>
 					{'\n'}
-					{t('about_credits_data_from_message_1')}
-					<Text onPress={handleOpenWaqi} style={theme.link}>
-						{t('about_credits_data_from_link_1')}
-					</Text>
-					{t('about_credits_data_from_message_2')}
-					<Text onPress={handleOpenOpenAQ} style={theme.link}>
-						{t('about_credits_data_from_link_2')}
-					</Text>
-					.{'\n'}
-					{t('about_credits_source_code')}
-					<Text onPress={handleOpenGithub} style={theme.link}>
-						{t('about_credits_available_github')}
-					</Text>
-					.{'\n'}
+					<Trans
+						i18nKey="credits.design_and_copywriting"
+						values={{ author: 'Marcelo S. Coelho' }}
+						t={t}
+					>
+						Design {'&'} Copywriting by{' '}
+						<Text style={theme.link} onPress={handleOpenMarcelo}>
+							{'{{author}}'}
+						</Text>
+						.
+					</Trans>
 					{'\n'}
-					{Constants.manifest.name} v
-					{Constants.manifest.revisionId ||
-						Constants.manifest.version}
-					.
+					{'\n'}
+					<Trans i18nKey="credits.database" t={t}>
+						Air quality data from{' '}
+						<Text style={theme.link} onPress={handleOpenWaqi}>
+							WAQI
+						</Text>{' '}
+						and{' '}
+						<Text style={theme.link} onPress={handleOpenOpenAQ}>
+							OpenAQ
+						</Text>
+						.
+					</Trans>
+					{'\n'}
+					<Trans i18nKey="credits.source_code" t={t}>
+						Source code{' '}
+						<Text style={theme.link} onPress={handleOpenGithub}>
+							available on Github
+						</Text>
+						.
+					</Trans>
+					{'\n'}
+					{'\n'}
+					{`${appName || ''} v${appVer || '?'}`}.
 				</Text>
-				{/* Add changing languages https://github.com/amaurymartiny/shoot-i-smoke/issues/73 */}
 			</View>
 		</CustomScrollView>
 	);

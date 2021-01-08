@@ -1,90 +1,114 @@
 {
-  "close_button": "Chiudi",
-  "error_screen_common_sorry": "Mi spiace!\n",
-  "error_screen_error_cannot_load_cigarettes": "Non possiamo caricare le tue sigarette.",
-  "error_screen_choose_other_location": "Seleziona un'altra posizione",
-  "error_screen_error_description": "C'è un problema con il nostro database, o non c'è nessuna Stazione di Monitoraggio Aria vicino a te. Riprova più tardi!",
-  "error_screen_error_message": "Errore: {{errorText}}",
-  "frequency_daily": "quotidianamente",
-  "frequency_weekly": "settimanalmente",
-  "frequency_monthly": "mensilmente",
-  "home_station_too_far_message": "Non possiamo trovare nessuna stazione vicino a te.\nA questa distanza i risultati possono essere non accurati.",
-  "home_beta_not_accurate": "I numeri non sono accurati al 100%.",
-  "home_share_title": "Lo sapevi che potresti fumare fino a 20 sigarette al giorno, solo per il fatto che vivi in una grande città?",
-  "home_share_message": "Diamine! Ho 'fumato' {{cigarettes}} sigarette oggi per aver respirato aria urbana. E tu? Guarda qui: https://shootismoke.github.io",
-  "home_header_air_quality_station_distance": "Stazione Qualità Aria: {{distanceToStation}}{{distanceUnit}} lontana",
-  "home_header_from_search": "da ricerca",
-  "home_header_change_location": "Cambia Posizione",
-  "home_btn_why_is_station_so_far": "Perchè la stazione è così lontana?",
-  "home_btn_see_detailed_info": "Mostra informazioni dettagliate",
-  "home_btn_see_how_it_works": "Guarda come funziona",
-  "home_btn_more_details": "Maggiori dettagli",
-  "home_btn_faq_about": "Faq/About",
-  "home_btn_share": "Condividi",
-  "home_cigarettes_you_smoke": "Fumi",
-  "home_cigarettes_you_d_smoke": "Avevi fumato",
-  "home_cigarettes_you_ll_smoke": "Fumerai",
-  "home_cigarettes_you_smoked": "Hai fumato",
-  "home_cigarettes_oh": "Oh",
-  "home_cigarettes_cigarette": "Sigaretta",
-  "home_cigarettes_cigarettes": "Sigarette",
-  "home_cigarettes_smoked_cigarette_title": "{{swearWord}}! {{presentPast}}\n<{{cigarettes}} {{singularPlural}}>",
-  "home_smoked_there": "there today",
-  "home_wait_more_days": "{{days}} altri giorni",
-  "home_wait_until_results": "per \nsmostrare i tuoi risultati",
-  "home_swear_word_dang": "Cavolo",
-  "home_swear_word_shoot": "Diamine",
-  "home_swear_word_darn": "Accidenti",
-  "home_swear_word_geez": "Mannaggia",
-  "home_swear_word_omg": "Oh cielo",
-  "home_swear_word_crap": "Diamine",
-  "home_swear_word_arrgh": "Arrgh",
-  "loading_title_cough": "Cough",
-  "loading_title_loading": "Caricamento",
-  "search_header_input_placeholder": "Cerca una città o indirizzo",
-  "search_current_location": "La tua posizione corrente",
-  "nav_btn_back": "Indietro",
-  "details_air_quality_station_marker": "Stazione Qualità Aria",
-  "details_your_position_marker": "La tua posizione",
-  "details_header_latest_update_label": "Ultimo aggiornamento:",
-  "details_header_latest_update_ago": "fa {{time}}",
-  "details_header_primary_pollutant_label": "Primary Pollutant:",
-  "details_distance_label": "Stazione AQI: {{distanceToStation}}{{distanceUnit}} lontano",
-  "distance_unit_short_km": "km",
-  "distance_unit_short_mi": "mi",
-  "distance_unit_long_km": "chilometri",
-  "distance_unit_long_mi": "miglia",
-  "past_stations_loading": "Caricamento",
-  "past_stations_date_from_to": "{{startDate}} a {{endDate}}",
-  "past_stations_monitored_weekly": "Stazioni monitorate per te durante la settimana",
-  "past_stations_monitored_monthly": "Stationi monitorate per te durante il mese",
-  "past_stations_unknown_station": "Stazione AQI sconosciuta",
-  "past_stations_unknown_city": "Città sconosciuta",
-  "about_how_do_you_calculate_the_number_of_cigarettes_title": "Come viene calcolato il numero di sigarette giornaliere?",
-  "about_how_do_you_calculate_the_number_of_cigarettes_message_1": "Questa appa è stata ispirata da Berkeley Earth’s findings che ha scoperto",
-  "about_how_do_you_calculate_the_number_of_cigarettes_link_1": "l'equivalenza tra inquinamento atmosferico e fumo di sigaretta",
-  "about_how_do_you_calculate_the_number_of_cigarettes_message_2": ". La regola empirica è semplice: una sigaretta al giorno (24 ore) è l'equivalente approssimativo di un livello PM2,5 di 22",
-  "about_box_per_day": "al giorno",
-  "about_box_footnote": "* Il particolato atmosferico (PM) che ha un diametro inferiore a 2,5 micrometri, con maggiori possibilità di inalazione da parte di esseri viventi.",
-  "about_beta_inaccurate_title": "Perchè la funzionalità di sigarette settimanali e mensili è in beta?",
-  "about_beta_inaccurate_message": "La funzionalità di mostrare sigarette settimanali e mensili è in beta perchè i risultati possono essere molto inaccurati: moltiplichiamo semplicemente il livello corrente di PM2.5 per un settimana (7 giorni) è un mese (30 giorni). Per la funzionalità completa, abbiamo pianificato di avere accesso ad un database che contiene la storia del PM2.5 per una posizione, così possiamo fornire una stima accurata del numero delle sigarette che fumerai in una settimana o mese.",
-  "about_where_does_data_come_from_title": "Da dove derivano i dati?",
-  "about_where_does_data_come_from_message_1": "I dati di qualità aria derivano da",
-  "about_where_does_data_come_from_link_1": "WAQI",
-  "about_where_does_data_come_from_message_2": "sotto forma di livelli AQI PM2.5 che di solito vengono aggiornati ogni ora e convertiti in livelli diretti PM2.5 dall'app.",
-  "about_why_is_the_station_so_far_title": "Perché la stazione è così lontana dalla mia posizione attuale?",
-  "about_why_is_the_station_so_far_message": "Poiché le stazioni che misurano e comunicano i risultati della qualità dell'aria ogni ora sono costose, i dati sono ancora limitati a regioni ben sviluppate e città più grandi di tutto il mondo. Se sei lontano da un centro urbano più importante, i risultati probabilmente non saranno così accurati. È probabile che la tua aria sia migliore in quel caso almeno!",
-  "about_weird_results_title": "I risultati sono strani o incoerenti con altre fonti!",
-  "about_weird_results_message_1": "Abbiamo anche riscontrato alcuni risultati sorprendenti: grandi città con aria migliore di piccoli villaggi; improvvisi enormi aumenti del numero di sigarette; stazioni della stessa città che mostrano numeri significativamente diversi ... Il fatto è che la qualità dell'aria dipende da diversi fattori quali temperatura, pressione, umidità e persino direzione e intensità del vento. Se il risultato sembra strano per te, controlla",
-  "about_weird_results_link_1": "WAQI",
-  "about_weird_results_message_2": "per più informazioni e storico della tua stazione.",
-  "about_distance_unit_title": "Unità di misura distanza",
-  "about_credits_title": "Crediti",
-  "about_credits_concept_and_development": "Concept & Development by",
-  "about_credits_design_and_copywriting": "Design & Copywriting by",
-  "about_credits_data_from": "Air quality data from",
-  "about_credits_source_code": "Codice sorgente",
-  "about_credits_available_github": "disponibile su Github",
-  "about_language": "Lingua",
-  "current_location_unknown_station": "Stazione AQI sconosciuta"
+  "components": {
+    "box_footnote": "* Il particolato atmosferico (PM) che ha un diametro inferiore a 2,5 micrometri, con maggiori possibilità di inalazione da parte di esseri viventi.",
+    "box_per_day": "al giorno",
+    "btn_back": "Indietro",
+    "cigarette_count": "EMPTY",
+    "cigarette_count_plural": "EMPTY",
+    "cigarette_report": "{{swear_word}}! You smoke\n<3>{{cigarette_count}}</3> {{frequency}}.",
+    "current_location_unknown_station": "Stazione AQI sconosciuta",
+    "distance_unit": {
+      "long_km": "chilometri",
+      "long_mi": "miglia",
+      "short_km": "km",
+      "short_mi": "mi"
+    },
+    "frequency": {},
+    "header": {
+      "change_location": "Cambia Posizione"
+    },
+    "loading_cigarettes": "Loading<1>...</1>",
+    "swear_word": "EMPTY",
+    "swear_word_0": "Oh",
+    "swear_word_1": "Diamine",
+    "swear_word_2": "Cavolo",
+    "swear_word_3": "Accidenti",
+    "swear_word_4": "Mannaggia",
+    "swear_word_5": "Oh cielo",
+    "swear_word_6": "Diamine",
+    "swear_word_7": "Arrgh"
+  },
+  "screen_about": {
+    "credits": {
+      "concept_and_development": "Concept & Development by <4>{{author}}</4>.",
+      "database": "Air quality data from <2>WAQI</2> and <6>OpenAQ</6>.",
+      "design_and_copywriting": "Design & Copywriting by <4>{{author}}</4>.",
+      "source_code": "Source code <2>available on Github</2>.",
+      "title": "Crediti"
+    },
+    "how_to_calculate_number_of_cigarettes": {
+      "message": "This app was inspired by Berkeley Earth’s findings about the <2>equivalence between air pollution and cigarette smoking</2>. The rule of thumb is simple: one cigarette per day (24h) is the rough equivalent of a PM2.5 level of <5></5>.",
+      "title": "Come viene calcolato il numero di sigarette giornaliere?"
+    },
+    "inaccurated_beta": {
+      "message": "La funzionalità di mostrare sigarette settimanali e mensili è in beta perchè i risultati possono essere molto inaccurati: moltiplichiamo semplicemente il livello corrente di PM2.5 per un settimana (7 giorni) è un mese (30 giorni). Per la funzionalità completa, abbiamo pianificato di avere accesso ad un database che contiene la storia del PM2.5 per una posizione, così possiamo fornire una stima accurata del numero delle sigarette che fumerai in una settimana o mese.",
+      "title": "Perchè la funzionalità di sigarette settimanali e mensili è in beta?"
+    },
+    "settings": {
+      "distance_unit": {}
+    },
+    "weird_results": {
+      "message": "We have also encountered a few surprising results: large cities with better air than small villages; sudden huge increases in the number of cigarettes; stations of the same town showing significantly different numbers... The fact is air quality depends on several factors such as temperature, pressure, humidity and even wind direction and intensity. If the result seems weird for you, check <2>WAQI</2> and <6>OpenAQ</6> for more information and history on your station."
+    },
+    "where_does_data_come_from": {
+      "message": "Air quality data comes from <2>WAQI</2> and <6>OpenAQ</6> in the form of PM2.5 AQI levels which are usually updated every one hour and converted to direct PM2.5 levels by the app.",
+      "title": "Da dove derivano i dati?"
+    },
+    "why_is_the_station_so_far": {
+      "message": "Poiché le stazioni che misurano e comunicano i risultati della qualità dell'aria ogni ora sono costose, i dati sono ancora limitati a regioni ben sviluppate e città più grandi di tutto il mondo. Se sei lontano da un centro urbano più importante, i risultati probabilmente non saranno così accurati. È probabile che la tua aria sia migliore in quel caso almeno!",
+      "title": "Perché la stazione è così lontana dalla mia posizione attuale?"
+    }
+  },
+  "screen_detail": {
+    "distance_label": "Stazione AQI: {{distanceToStation}}{{distanceUnit}} lontano",
+    "header": {
+      "latest_update": {
+        "ago": "fa {{time}}",
+        "label": "Ultimo aggiornamento:"
+      },
+      "primary_pollutant_label": "Primary Pollutant:"
+    },
+    "marker": {
+      "air_quality_station": "Stazione Qualità Aria",
+      "your_position": "La tua posizione"
+    }
+  },
+  "screen_error": {
+    "cannot_load_cigarettes": "Non possiamo caricare le tue sigarette.",
+    "choose_other_location": "Seleziona un'altra posizione",
+    "description": "C'è un problema con il nostro database, o non c'è nessuna Stazione di Monitoraggio Aria vicino a te. Riprova più tardi!",
+    "header": {
+      "sorry": "Mi spiace!\n"
+    },
+    "message": "Errore: {{errorText}}"
+  },
+  "screen_home": {
+    "beta_not_accurate": "I numeri non sono accurati al 100%.",
+    "btn": {
+      "see_detailed_info": "Mostra informazioni dettagliate",
+      "why_is_station_so_far": "Perchè la stazione è così lontana?"
+    },
+    "header": {
+      "air_quality_station_distance_from": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away",
+      "air_quality_station_distance_from_detect": "Stazione Qualità Aria: {{distanceToStation}}{{distanceUnit}} lontana",
+      "air_quality_station_distance_from_search": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away from search"
+    },
+    "notification": {},
+    "sharing": {
+      "located_city": "in {{place}}",
+      "message": "Shoot! People {{city}} \"smoke\" {{amount}} cigarettes daily just by breathing urban air. Try it out yourself: {{link}}",
+      "title": "Lo sapevi che potresti fumare fino a 20 sigarette al giorno, solo per il fatto che vivi in una grande città?"
+    },
+    "station_too_far": "Non possiamo trovare nessuna stazione vicino a te.\nA questa distanza i risultati possono essere non accurati."
+  },
+  "screen_loading": {
+    "cough": "Cough",
+    "loading": "Caricamento"
+  },
+  "screen_search": {
+    "current_location": "La tua posizione corrente",
+    "header": {
+      "input_placeholder": "Cerca una città o indirizzo"
+    }
+  }
 }

@@ -16,10 +16,8 @@
 
 import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { CigarettesBlock } from '@shootismoke/ui';
 
-import { t } from '../../../../../localization';
-import { CurrentLocation } from '../../../../../components';
+import { CigarettesBlock, CurrentLocation } from '../../../../../components';
 import { ApiContext, CurrentLocationContext } from '../../../../../stores';
 import * as theme from '../../../../../util/theme';
 
@@ -59,7 +57,6 @@ export function ShareImage(): React.ReactElement {
 				cigarettes={api.shootismoke.dailyCigarettes}
 				frequency="daily"
 				style={styles.cigaretteBlock}
-				t={t}
 			/>
 			<CurrentLocation
 				currentLocation={currentLocation}

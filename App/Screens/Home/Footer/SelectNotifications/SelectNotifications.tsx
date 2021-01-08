@@ -29,7 +29,6 @@ import { StyleSheet, Text, View, ViewProps } from 'react-native';
 import { scale } from 'react-native-size-matters';
 
 import { ActionPicker } from '../../../../components';
-import { t } from '../../../../localization';
 import { ApiContext } from '../../../../stores';
 import {
 	useGetOrCreateUser,
@@ -40,6 +39,7 @@ import { AmplitudeEvent, track } from '../../../../util/amplitude';
 import { promiseToTE, retry, sideEffect } from '../../../../util/fp';
 import { sentryError } from '../../../../util/sentry';
 import * as theme from '../../../../util/theme';
+import { useTranslation } from 'react-i18next';
 
 const notificationsValues = ['never', 'daily', 'weekly', 'monthly'] as const;
 
@@ -54,7 +54,7 @@ function capitalize(s: string): string {
 
 /**
  * Convert hex to rgba.
- * @see https://stackoverflow.com/questions/21646738/convert-hex-to-rgba#answer-51564734
+ * @see https://stackoverflow.com/a/51564734
  */
 function hex2rgba(hex: string, alpha = 1): string {
 	const matches = hex.match(/\w\w/g);
@@ -124,6 +124,8 @@ export function SelectNotifications(
 		getUser.data?.getUser?.notifications?.frequency ||
 		// If the getUserData is still loading, just show `never`
 		'never';
+
+	const { t } = useTranslation(['screen_home', 'components']);
 
 	// Optimistic UI
 	useEffect(() => {
@@ -234,9 +236,13 @@ export function SelectNotifications(
 			actionSheetOptions={{
 				cancelButtonIndex: 4,
 				options: notificationsValues
-					.map((f) => t(`home_frequency_${f}`)) // Translate
+					.map((f) => t(`components:frequency.${f}`))
 					.map(capitalize)
-					.concat(t('home_frequency_notifications_cancel')),
+					.concat(
+						capitalize(
+							t('screen_home:notification.cancel', 'cancel')
+						)
+					),
 			}}
 			amplitudeOpenEvent="HOME_SCREEN_NOTIFICATIONS_OPEN_PICKER"
 			callback={(buttonIndex): void => {
@@ -270,16 +276,16 @@ export function SelectNotifications(
 					{isSwitchOn ? (
 						<View>
 							<Text style={styles.label}>
-								{t('home_frequency_notify_me')}
+								{t('screen_home:notification.notify_me')}
 							</Text>
 							<Text style={styles.labelFrequency}>
-								{t(`home_frequency_${notif}`)}{' '}
+								{t(`components:frequency.${notif}`)}{' '}
 								<FontAwesome name="caret-down" />
 							</Text>
 						</View>
 					) : (
 						<Text style={styles.label}>
-							{t('home_frequency_allow_notifications')}
+							{t('screen_home:notification.allow')}
 						</Text>
 					)}
 				</View>
@@ -287,3 +293,12 @@ export function SelectNotifications(
 		</ActionPicker>
 	);
 }
+
+/**
+ * I18NEXT-PARSER
+ * https://github.com/i18next/i18next-parser#caveats
+ *
+ * > 'notification.frequency'
+ * t('components:frequency.never', 'never')
+ * More frequency at SelectFrequency.tsx
+ */

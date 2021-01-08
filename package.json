@@ -11,7 +11,8 @@
 		"lint": "tsc --noEmit && eslint --ext .js,.ts,.tsx .",
 		"start": "expo start",
 		"test:unit": "jest App",
-		"test:e2e": "detox test --configuration ios.sim --record-videos all"
+		"test:e2e": "detox test --configuration ios.sim --record-videos all",
+		"extract": "npx i18next; node ./scripts/packTranslations.js"
 	},
 	"detox": {
 		"configurations": {
@@ -35,7 +36,6 @@
 		"@react-navigation/stack": "^5.2.10",
 		"@shootismoke/graphql": "^0.2.31",
 		"@shootismoke/ui": "^0.2.32",
-		"@types/i18n-js": "^3.0.3",
 		"@types/react-native": "~0.63.2",
 		"apollo-cache-persist": "^0.1.1",
 		"date-fns": "^2.16.1",
@@ -47,8 +47,9 @@
 		"expo-notifications": "~0.8.2",
 		"expo-status-bar": "~1.0.3",
 		"graphql": "^15.3.0",
-		"i18n-js": "^3.7.1",
+		"i18next": "^19.8.2",
 		"react": "16.13.1",
+		"react-i18next": "^11.7.3",
 		"react-native": "https://github.com/expo/react-native/archive/sdk-40.0.0.tar.gz",
 		"react-native-gesture-handler": "~1.8.0",
 		"react-native-maps": "0.27.1",
@@ -67,6 +68,7 @@
 		"@types/jest": "^26.0.19",
 		"detox": "^18.0.1",
 		"detox-expo-helpers": "^0.6.0",
+		"i18next-parser": "^3.3.0",
 		"jest": "^26.6.3",
 		"jest-expo": "^40.0.0",
 		"ts-jest": "^26.4.4",

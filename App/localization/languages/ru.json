@@ -1,90 +1,115 @@
 {
-  "close_button": "Закрыть",
-  "error_screen_common_sorry": "Извините!\n",
-  "error_screen_error_cannot_load_cigarettes": "Мы не можем загрузить количество ваших сигарет.",
-  "error_screen_choose_other_location": "Выберите другую локацию",
-  "error_screen_error_description": "Либо проблема с нашими базами данных, либо рядом с вами нет станций мониторинга воздуха. Попробуйте позже!",
-  "error_screen_error_message": "Ошибка: {{errorText}}",
-  "frequency_daily": "ежедневно",
-  "frequency_weekly": "еженедельно",
-  "frequency_monthly": "ежемесячно",
-  "home_station_too_far_message": "Мы не смогли найти ни одной станции рядом с вами.\nРезультаты могут быть не точными из-за расстояния.",
-  "home_beta_not_accurate": "Значение может не совпадать на 100%",
-  "home_share_title": "А вы знаете, что вы, возможно, выкуриваете до 20 сигарет в день просто из-за того, что живёте в мегаполисе?",
-  "home_share_message": "Чёрт! Я 'выкурил' {{cigarettes}} сигарет сегодня, вдыхая городской воздух. А ты? Узнай тут: https://shootismoke.github.io",
-  "home_header_air_quality_station_distance": "Расстояние до станции определения качества воздуха: {{distanceToStation}}{{distanceUnit}}",
-  "home_header_from_search": "из поиска",
-  "home_header_change_location": "Изменить местолоположение",
-  "home_btn_why_is_station_so_far": "Почему станция так далеко?",
-  "home_btn_see_detailed_info": "Посмотреть детальную информацию",
-  "home_btn_see_how_it_works": "Посмотреть, как это работает",
-  "home_btn_more_details": "Подробнее",
-  "home_btn_faq_about": "Faq/О программе",
-  "home_btn_share": "Поделится",
-  "home_cigarettes_you_smoke": "Вы выкуривате",
-  "home_cigarettes_you_d_smoke": "Вы бы выкурили",
-  "home_cigarettes_you_ll_smoke": "Вы выкурите",
-  "home_cigarettes_you_smoked": "Вы выкурили",
-  "home_cigarettes_oh": "Ой",
-  "home_cigarettes_cigarette": "Сигареты",
-  "home_cigarettes_cigarettes": "Сигарет",
-  "home_cigarettes_smoked_cigarette_title": "{{swearWord}}! {{presentPast}}\n<{{cigarettes}} {{singularPlural}}>",
-  "home_smoked_there": "сегодня",
-  "home_wait_more_days": "{{days}} больше дней",
-  "home_wait_until_results": "\nпоказать свои результаты",
-  "home_swear_word_dang": "Чёрт",
-  "home_swear_word_shoot": "Ъуъ",
-  "home_swear_word_darn": "Проклятье",
-  "home_swear_word_geez": "Блин",
-  "home_swear_word_omg": "OMG",
-  "home_swear_word_crap": "Дерьмо",
-  "home_swear_word_arrgh": "Arrgh",
-  "loading_title_cough": "Кхе",
-  "loading_title_loading": "Загрузка",
-  "search_header_input_placeholder": "Искать город или адрес",
-  "search_current_location": "Ваше местоположение",
-  "nav_btn_back": "Назад",
-  "details_air_quality_station_marker": "Станция определения качества воздуха (AQI)",
-  "details_your_position_marker": "Ваше местоположение",
-  "details_header_latest_update_label": "Последнее обновление:",
-  "details_header_latest_update_ago": "тому назад {{time}}",
-  "details_header_primary_pollutant_label": "Основной загрязнитель:",
-  "details_distance_label": "Расстояние до AQI станции: {{distanceToStation}}{{distanceUnit}}",
-  "distance_unit_short_km": "км",
-  "distance_unit_short_mi": "мили",
-  "distance_unit_long_km": "километр",
-  "distance_unit_long_mi": "миля",
-  "past_stations_loading": "Загрузка",
-  "past_stations_date_from_to": "{{startDate}} до {{endDate}}",
-  "past_stations_monitored_weekly": "Вы следите заа станцией в течении недели",
-  "past_stations_monitored_monthly": "Вы следите заа станцией в течении месяца",
-  "past_stations_unknown_station": "Неизвестная AQI станция",
-  "past_stations_unknown_city": "Неизвестный город",
-  "about_how_do_you_calculate_the_number_of_cigarettes_title": "Как вы расчитываете количество ежедневных сигарет?",
-  "about_how_do_you_calculate_the_number_of_cigarettes_message_1": "Это приложение вдохновлено исследованиями Berkeley Earth об",
-  "about_how_do_you_calculate_the_number_of_cigarettes_link_1": "эквивалентности между загрязнением воздуха и выкуриванием сигарет",
-  "about_how_do_you_calculate_the_number_of_cigarettes_message_2": ". Правило расчёта крайне простое: одна сигарета в день (24ч) является грубым эквивалентом значения уровня PM2.5, который равен 22",
-  "about_box_per_day": "в день",
-  "about_box_footnote": "*Атмосферные твёрные частицы (PM), диаметром менее 2.5 микрометров, с повышенной вероятностью вдыхания живыми существами.",
-  "about_beta_inaccurate_title": "Почему расчёт еженедельного и ежемесячного количества сигарет находится в статусе бета-версии?",
-  "about_beta_inaccurate_message": "Функция отображения еженедельных и ежемесячных сигарет находится в бета-версии, потому что результаты могут быть очень неточными: мы просто умножаем текущий уровень PM2,5, чтобы расчитать неделю (7 дней) и месяц (30 дней). Для полной функциональности мы планируем иметь доступ к базе данных, которая содержит историю местоположения PM2.5, чтобы мы смогли предоставить точную оценку количества сигарет, которые вы выкурите в течение недели или месяца.",
-  "about_where_does_data_come_from_title": "Откуда берутся данные?",
-  "about_where_does_data_come_from_message_1": "Данные качества воздуха предоставляются",
-  "about_where_does_data_come_from_link_1": "WAQI",
-  "about_where_does_data_come_from_message_2": "в формате AQI PM2.5. Значение AQI обычно обновляются каждый час и конвертируются в прямое значение PM2.5 в приложении.",
-  "about_why_is_the_station_so_far_title": "Почему станция находится так далеко от моего текущего местоположения?",
-  "about_why_is_the_station_so_far_message": "Поскольку станции, которые измеряют и сообщают результаты по качеству воздуха каждый час, дороги, данные по-прежнему ограничены хорошо развитыми регионами и более крупными городами по всему миру. Если вы далеко от более заметного городского центра, результаты, вероятно, будут не такими точными. Скорее всего воздух в вашем районе хотя бы должен быть лучше!",
-  "about_weird_results_title": "Результаты странные или не соответствуют другим источникам!",
-  "about_weird_results_message_1": "Мы также столкнулись с несколькими удивительными результатами: в больших городах воздух лучше, чем в маленьких деревнях; внезапное огромное увеличение количества сигарет; станции в одном и том же городе показывают разительно разные значения... Дело в том, что качество воздуха зависит от нескольких факторов, таких как: температура, давление, влажность и даже направление и сила ветра. Если результат кажется вам странным, проверьте",
-  "about_weird_results_link_1": "WAQI",
-  "about_weird_results_message_2": "для получения дополнительной информации и истории на вашей станции.",
-  "about_distance_unit_title": "Единица расстояния",
-  "about_credits_title": "Авторы",
-  "about_credits_concept_and_development": "Концепт и разработка: ",
-  "about_credits_design_and_copywriting": "Дизайн и текст:",
-  "about_credits_data_from": "Данные о качестве воздуха от",
-  "about_credits_source_code": "Исходный код",
-  "about_credits_available_github": "доступен на Github",
-  "about_language": "Язык",
-  "current_location_unknown_station": "Неизвестная станция AQI"
+  "components": {
+    "box_footnote": "*Атмосферные твёрные частицы (PM), диаметром менее 2.5 микрометров, с повышенной вероятностью вдыхания живыми существами.",
+    "box_per_day": "в день",
+    "btn_back": "Назад",
+    "cigarette_count_0": "EMPTY",
+    "cigarette_count_1": "EMPTY",
+    "cigarette_count_2": "EMPTY",
+    "cigarette_report": "{{swear_word}}! You smoke\n<3>{{cigarette_count}}</3> {{frequency}}.",
+    "current_location_unknown_station": "Неизвестная станция AQI",
+    "distance_unit": {
+      "long_km": "километр",
+      "long_mi": "миля",
+      "short_km": "км",
+      "short_mi": "мили"
+    },
+    "frequency": {},
+    "header": {
+      "change_location": "Изменить местолоположение"
+    },
+    "loading_cigarettes": "Loading<1>...</1>",
+    "swear_word": "EMPTY",
+    "swear_word_0": "Ой",
+    "swear_word_1": "Ъуъ",
+    "swear_word_2": "Чёрт",
+    "swear_word_3": "Проклятье",
+    "swear_word_4": "Блин",
+    "swear_word_5": "OMG",
+    "swear_word_6": "Дерьмо",
+    "swear_word_7": "Arrgh"
+  },
+  "screen_about": {
+    "credits": {
+      "concept_and_development": "Concept & Development by <4>{{author}}</4>.",
+      "database": "Air quality data from <2>WAQI</2> and <6>OpenAQ</6>.",
+      "design_and_copywriting": "Design & Copywriting by <4>{{author}}</4>.",
+      "source_code": "Source code <2>available on Github</2>.",
+      "title": "Авторы"
+    },
+    "how_to_calculate_number_of_cigarettes": {
+      "message": "This app was inspired by Berkeley Earth’s findings about the <2>equivalence between air pollution and cigarette smoking</2>. The rule of thumb is simple: one cigarette per day (24h) is the rough equivalent of a PM2.5 level of <5></5>.",
+      "title": "Как вы расчитываете количество ежедневных сигарет?"
+    },
+    "inaccurated_beta": {
+      "message": "Функция отображения еженедельных и ежемесячных сигарет находится в бета-версии, потому что результаты могут быть очень неточными: мы просто умножаем текущий уровень PM2,5, чтобы расчитать неделю (7 дней) и месяц (30 дней). Для полной функциональности мы планируем иметь доступ к базе данных, которая содержит историю местоположения PM2.5, чтобы мы смогли предоставить точную оценку количества сигарет, которые вы выкурите в течение недели или месяца.",
+      "title": "Почему расчёт еженедельного и ежемесячного количества сигарет находится в статусе бета-версии?"
+    },
+    "settings": {
+      "distance_unit": {}
+    },
+    "weird_results": {
+      "message": "We have also encountered a few surprising results: large cities with better air than small villages; sudden huge increases in the number of cigarettes; stations of the same town showing significantly different numbers... The fact is air quality depends on several factors such as temperature, pressure, humidity and even wind direction and intensity. If the result seems weird for you, check <2>WAQI</2> and <6>OpenAQ</6> for more information and history on your station."
+    },
+    "where_does_data_come_from": {
+      "message": "Air quality data comes from <2>WAQI</2> and <6>OpenAQ</6> in the form of PM2.5 AQI levels which are usually updated every one hour and converted to direct PM2.5 levels by the app.",
+      "title": "Откуда берутся данные?"
+    },
+    "why_is_the_station_so_far": {
+      "message": "Поскольку станции, которые измеряют и сообщают результаты по качеству воздуха каждый час, дороги, данные по-прежнему ограничены хорошо развитыми регионами и более крупными городами по всему миру. Если вы далеко от более заметного городского центра, результаты, вероятно, будут не такими точными. Скорее всего воздух в вашем районе хотя бы должен быть лучше!",
+      "title": "Почему станция находится так далеко от моего текущего местоположения?"
+    }
+  },
+  "screen_detail": {
+    "distance_label": "Расстояние до AQI станции: {{distanceToStation}}{{distanceUnit}}",
+    "header": {
+      "latest_update": {
+        "ago": "тому назад {{time}}",
+        "label": "Последнее обновление:"
+      },
+      "primary_pollutant_label": "Основной загрязнитель:"
+    },
+    "marker": {
+      "air_quality_station": "Станция определения качества воздуха (AQI)",
+      "your_position": "Ваше местоположение"
+    }
+  },
+  "screen_error": {
+    "cannot_load_cigarettes": "Мы не можем загрузить количество ваших сигарет.",
+    "choose_other_location": "Выберите другую локацию",
+    "description": "Либо проблема с нашими базами данных, либо рядом с вами нет станций мониторинга воздуха. Попробуйте позже!",
+    "header": {
+      "sorry": "Извините!\n"
+    },
+    "message": "Ошибка: {{errorText}}"
+  },
+  "screen_home": {
+    "beta_not_accurate": "Значение может не совпадать на 100%",
+    "btn": {
+      "see_detailed_info": "Посмотреть детальную информацию",
+      "why_is_station_so_far": "Почему станция так далеко?"
+    },
+    "header": {
+      "air_quality_station_distance_from": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away",
+      "air_quality_station_distance_from_detect": "Расстояние до станции определения качества воздуха: {{distanceToStation}}{{distanceUnit}}",
+      "air_quality_station_distance_from_search": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away from search"
+    },
+    "notification": {},
+    "sharing": {
+      "located_city": "in {{place}}",
+      "message": "Shoot! People {{city}} \"smoke\" {{amount}} cigarettes daily just by breathing urban air. Try it out yourself: {{link}}",
+      "title": "А вы знаете, что вы, возможно, выкуриваете до 20 сигарет в день просто из-за того, что живёте в мегаполисе?"
+    },
+    "station_too_far": "Мы не смогли найти ни одной станции рядом с вами.\nРезультаты могут быть не точными из-за расстояния."
+  },
+  "screen_loading": {
+    "cough": "Кхе",
+    "loading": "Загрузка"
+  },
+  "screen_search": {
+    "current_location": "Ваше местоположение",
+    "header": {
+      "input_placeholder": "Искать город или адрес"
+    }
+  }
 }

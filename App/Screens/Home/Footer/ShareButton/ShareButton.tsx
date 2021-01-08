@@ -19,10 +19,10 @@ import { Share, StyleSheet, View, ViewProps } from 'react-native';
 import { captureRef } from 'react-native-view-shot';
 
 import { CircleButton } from '../../../../components';
-import { t } from '../../../../localization';
 import { ApiContext, CurrentLocationContext } from '../../../../stores';
 import { sentryError } from '../../../../util/sentry';
 import { ShareImage } from './ShareImage';
+import { useTranslation } from 'react-i18next';
 
 type ShareButtonProps = ViewProps;
 
@@ -40,6 +40,7 @@ export function ShareButton(props: ShareButtonProps): React.ReactElement {
 	const { api } = useContext(ApiContext);
 	const { currentLocation } = useContext(CurrentLocationContext);
 	const refViewShot = createRef<View>();
+	const { t } = useTranslation('screen_home');
 
 	async function handleShare(): Promise<void> {
 		try {
@@ -57,13 +58,16 @@ export function ShareButton(props: ShareButtonProps): React.ReactElement {
 				format: 'png',
 				quality: 1,
 			});
-			const message = t('home_share_message', {
-				city: currentLocation.city
-					? `in ${currentLocation.city}`
-					: t('home_share_message_here'),
-				cigarettes: Math.ceil(api.shootismoke.dailyCigarettes),
+
+			const title = t('sharing.title');
+			const message = t('sharing.message', {
+				city: t('sharing.located', {
+					context: currentLocation.city ? 'city' : 'here',
+					place: `${currentLocation.city || ''}`,
+				}),
+				amount: Math.ceil(api.shootismoke.dailyCigarettes),
+				link: 'https://shootismoke.github.io',
 			});
-			const title = t('home_share_title');
 
 			// FIXME imageUrl doesn't work on Android
 			// https://github.com/amaurymartiny/shoot-i-smoke/issues/250
@@ -82,3 +86,13 @@ export function ShareButton(props: ShareButtonProps): React.ReactElement {
 		</View>
 	);
 }
+
+/**
+ * I18NEXT-PARSER
+ * https://github.com/i18next/i18next-parser#caveats
+ *
+ * > const message =
+ * t('sharing.located', 'in {{place}}', {context: 'city'})
+ * t('sharing.located', 'here', {context: 'here'})
+ * t('sharing.message', 'Shoot! People {{city}} \"smoke\" {{amount}} cigarettes daily just by breathing urban air. Try it out yourself: {{link}}')
+ */

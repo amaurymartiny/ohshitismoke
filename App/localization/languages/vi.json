@@ -1,0 +1,130 @@
+{
+  "components": {
+    "box_footnote": "EMPTY",
+    "box_per_day": "EMPTY",
+    "btn_back": "Back",
+    "cigarette_count": "EMPTY",
+    "cigarette_report": "{{swear_word}}! You smoke\n<3>{{cigarette_count}}</3> {{frequency}}.",
+    "current_location_unknown_station": "EMPTY",
+    "distance_unit": {
+      "long_km": "kilometer",
+      "long_mi": "mile",
+      "short_km": "km",
+      "short_mi": "mi"
+    },
+    "frequency": {
+      "daily": "daily",
+      "monthly": "monthly",
+      "never": "never",
+      "weekly": "weekly"
+    },
+    "header": {
+      "change_location": "EMPTY"
+    },
+    "loading_cigarettes": "Loading<1>...</1>",
+    "swear_word": "EMPTY",
+    "swear_word_0": "Oh",
+    "swear_word_1": "Shoot",
+    "swear_word_2": "Dang",
+    "swear_word_3": "Darn",
+    "swear_word_4": "Geez",
+    "swear_word_5": "OMG",
+    "swear_word_6": "Crap",
+    "swear_word_7": "Arrgh"
+  },
+  "screen_about": {
+    "credits": {
+      "concept_and_development": "Concept & Development by <4>{{author}}</4>.",
+      "database": "Air quality data from <2>WAQI</2> and <6>OpenAQ</6>.",
+      "design_and_copywriting": "Design & Copywriting by <4>{{author}}</4>.",
+      "source_code": "Source code <2>available on Github</2>.",
+      "title": "EMPTY"
+    },
+    "how_to_calculate_number_of_cigarettes": {
+      "message": "This app was inspired by Berkeley Earth’s findings about the <2>equivalence between air pollution and cigarette smoking</2>. The rule of thumb is simple: one cigarette per day (24h) is the rough equivalent of a PM2.5 level of <5></5>.",
+      "title": "EMPTY"
+    },
+    "inaccurated_beta": {
+      "message": "EMPTY",
+      "title": "EMPTY"
+    },
+    "settings": {
+      "distance_unit": {
+        "km": "km",
+        "label": "EMPTY",
+        "mile": "mile"
+      },
+      "title": "EMPTY"
+    },
+    "weird_results": {
+      "message": "We have also encountered a few surprising results: large cities with better air than small villages; sudden huge increases in the number of cigarettes; stations of the same town showing significantly different numbers... The fact is air quality depends on several factors such as temperature, pressure, humidity and even wind direction and intensity. If the result seems weird for you, check <2>WAQI</2> and <6>OpenAQ</6> for more information and history on your station.",
+      "title": "EMPTY"
+    },
+    "where_does_data_come_from": {
+      "message": "Air quality data comes from <2>WAQI</2> and <6>OpenAQ</6> in the form of PM2.5 AQI levels which are usually updated every one hour and converted to direct PM2.5 levels by the app.",
+      "title": "EMPTY"
+    },
+    "why_is_the_station_so_far": {
+      "message": "EMPTY",
+      "title": "EMPTY"
+    }
+  },
+  "screen_detail": {
+    "distance_label": "EMPTY",
+    "header": {
+      "latest_update": {
+        "ago": "{{time}} ago",
+        "label": "Latest Update:"
+      },
+      "primary_pollutant_label": "EMPTY"
+    },
+    "marker": {
+      "air_quality_station": "EMPTY",
+      "your_position": "EMPTY"
+    }
+  },
+  "screen_error": {
+    "cannot_load_cigarettes": "EMPTY",
+    "choose_other_location": "EMPTY",
+    "description": "EMPTY",
+    "header": {
+      "sorry": "Sorry"
+    },
+    "message": "EMPTY",
+    "show_details": "EMPTY"
+  },
+  "screen_home": {
+    "beta_not_accurate": "EMPTY",
+    "btn": {
+      "see_detailed_info": "EMPTY",
+      "why_is_station_so_far": "EMPTY"
+    },
+    "header": {
+      "air_quality_station_distance_from": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away",
+      "air_quality_station_distance_from_detect": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away",
+      "air_quality_station_distance_from_search": "Air Quality Station: {{distanceToStation}}{{distanceUnit}} away from search"
+    },
+    "notification": {
+      "allow": "EMPTY",
+      "cancel": "cancel",
+      "notify_me": "EMPTY"
+    },
+    "sharing": {
+      "located_city": "in {{place}}",
+      "located_here": "here",
+      "message": "Shoot! People {{city}} \"smoke\" {{amount}} cigarettes daily just by breathing urban air. Try it out yourself: {{link}}",
+      "title": "EMPTY"
+    },
+    "station_too_far": "EMPTY"
+  },
+  "screen_loading": {
+    "cough": "EMPTY",
+    "loading": "EMPTY"
+  },
+  "screen_search": {
+    "current_location": "EMPTY",
+    "header": {
+      "input_placeholder": "EMPTY"
+    }
+  }
+}

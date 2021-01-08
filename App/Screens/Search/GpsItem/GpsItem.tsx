@@ -17,12 +17,13 @@
 import React, { useContext } from 'react';
 
 import { ListItem } from '../../../components';
-import { t } from '../../../localization';
 import { CurrentLocationContext, GpsLocationContext } from '../../../stores';
+import { useTranslation } from 'react-i18next';
 
 const LOADING_TEXT = 'Fetching...';
 
 export function GpsItem(): React.ReactElement | null {
+	const { t } = useTranslation('screen_search');
 	const { setCurrentLocation } = useContext(CurrentLocationContext);
 	const gps = useContext(GpsLocationContext);
 
@@ -36,7 +37,7 @@ export function GpsItem(): React.ReactElement | null {
 
 	return (
 		<ListItem
-			description={t('search_current_location')}
+			description={t('current_location')}
 			icon="gps"
 			onPress={handleClick}
 			title={gps.name || LOADING_TEXT}

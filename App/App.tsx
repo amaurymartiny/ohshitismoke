@@ -16,11 +16,9 @@
 
 import { ApolloClient, ApolloProvider } from '@apollo/client';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
-import Constants from 'expo-constants';
 import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
 import { AppState } from 'react-native';
-import * as Sentry from 'sentry-expo';
 import { FrequencyContextProvider } from '@shootismoke/ui';
 
 import { Screens } from './Screens';
@@ -34,8 +32,13 @@ import {
 	TCacheShape,
 } from './stores';
 import { setupAmplitude, track } from './util/amplitude';
-import { IS_SENTRY_SET_UP, RELEASE_CHANNEL } from './util/constants';
 import { sentryError } from './util/sentry';
+
+import './localization';
+
+import * as Sentry from 'sentry-expo';
+import Constants from 'expo-constants';
+import { IS_SENTRY_SET_UP, RELEASE_CHANNEL } from './util/constants';
 
 // Add Sentry if available
 if (IS_SENTRY_SET_UP) {
@@ -107,3 +110,5 @@ export function App(): React.ReactElement {
 		</ErrorContextProvider>
 	);
 }
+
+// TODO bug will be encounter until all the old translation is replaced
